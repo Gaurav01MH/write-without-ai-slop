@@ -1,0 +1,227 @@
+[
+  {
+    "id": "v01",
+    "name": "x-generic-reply",
+    "mode": "rewrite",
+    "request": "Rewrite this reply to a post about a database migration.",
+    "must": [
+      "Removes the agreement filler, the hype and the engagement question",
+      "Does not add a fact about the migration or the original post",
+      "Either shortens heavily or says there is no specific content to keep"
+    ],
+    "must_not": [
+      "Invents a detail about the database migration"
+    ],
+    "script": true,
+    "input": "inputs/v01-x-generic-reply.txt"
+  },
+  {
+    "id": "v02",
+    "name": "x-thread",
+    "mode": "rewrite",
+    "request": "Rewrite this X thread.",
+    "must": [
+      "Keeps 3 engineers, 2024, two left, 6 months",
+      "The first post carries the point instead of promising a thread",
+      "Adds no new fact or cause"
+    ],
+    "must_not": [
+      "Adds a number or a reason not in the input"
+    ],
+    "script": true,
+    "input": "inputs/v02-x-thread.txt"
+  },
+  {
+    "id": "v03",
+    "name": "email-follow-up",
+    "mode": "rewrite",
+    "request": "Rewrite this follow-up.",
+    "must": [
+      "Keeps John, 4 March, $12,000, Maya",
+      "Cuts the filler",
+      "Ends with one clear ask"
+    ],
+    "must_not": [
+      "Invents a deadline or a date",
+      "Adds a reason or a new fact"
+    ],
+    "script": true,
+    "input": "inputs/v03-email-follow-up.txt"
+  },
+  {
+    "id": "v04",
+    "name": "slack-over-formatted",
+    "mode": "rewrite",
+    "request": "Rewrite this Slack message.",
+    "must": [
+      "Becomes a short plain message with no headers",
+      "Keeps: build green, tests pass, deploy tomorrow",
+      "Drops the closing offer"
+    ],
+    "must_not": [
+      "Adds a reason, a time or a name"
+    ],
+    "script": true,
+    "input": "inputs/v04-slack-over-formatted.txt"
+  },
+  {
+    "id": "v05",
+    "name": "website-about",
+    "mode": "rewrite",
+    "request": "Rewrite this About page paragraph.",
+    "must": [
+      "Keeps 2019, 200 clients and 14 countries",
+      "Removes passionate, innovators, cutting-edge, empower and landscape language"
+    ],
+    "must_not": [
+      "Adds a claim, a product or a number not in the input"
+    ],
+    "script": true,
+    "input": "inputs/v05-website-about.txt"
+  },
+  {
+    "id": "v06",
+    "name": "docs-changelog",
+    "mode": "rewrite",
+    "request": "Rewrite this changelog entry.",
+    "must": [
+      "Keeps 2.1 and 300 seconds",
+      "Drops robust, seamless and 'important to note'"
+    ],
+    "must_not": [
+      "Adds a setting, a flag or a number not in the input"
+    ],
+    "script": true,
+    "input": "inputs/v06-docs-changelog.txt"
+  },
+  {
+    "id": "v07",
+    "name": "check-only-cover-letter",
+    "mode": "check",
+    "request": "Audit this cover letter for AI patterns. Do not rewrite it.",
+    "must": [
+      "Each finding quotes a line and names the pattern",
+      "Notes that no specific result, number or employer appears",
+      "Ends with one sentence verdict",
+      "Does not guess that an AI wrote it"
+    ],
+    "must_not": [
+      "Returns a rewritten letter"
+    ],
+    "script": false,
+    "input": "inputs/v07-check-only-cover-letter.txt"
+  },
+  {
+    "id": "v08",
+    "name": "linkedin-three-posts",
+    "mode": "rewrite",
+    "request": "Rewrite these three posts. They go out Monday, Wednesday and Friday.",
+    "must": [
+      "Keeps 12 to 4 minutes, weekly to daily, Q2, 30 and 9",
+      "The three closings are not the same engagement question",
+      "No new fact or cause"
+    ],
+    "must_not": [
+      "Leaves the same comment-bait line on all three"
+    ],
+    "script": true,
+    "input": "inputs/v08-linkedin-three-posts.txt"
+  },
+  {
+    "id": "v09",
+    "name": "quote-and-source",
+    "mode": "rewrite",
+    "request": "Rewrite this paragraph.",
+    "must": [
+      "Keeps 2024, Acme Research, 73% and the quote word for word",
+      "Cuts or flags 'experts agree' as a vague source",
+      "Does not add a new source or statistic"
+    ],
+    "must_not": [
+      "Changes the quote"
+    ],
+    "script": true,
+    "input": "inputs/v09-quote-and-source.txt"
+  },
+  {
+    "id": "v10",
+    "name": "chatbot-wrapper-email",
+    "mode": "rewrite",
+    "request": "Clean this up so I can send it.",
+    "must": [
+      "Returns only the email",
+      "Keeps Tom, Q3, Friday, Ravi",
+      "Removes the wrapper lines, the dividers and the closing offer"
+    ],
+    "must_not": [
+      "Rewrites the email body"
+    ],
+    "script": true,
+    "input": "inputs/v10-chatbot-wrapper-email.txt"
+  },
+  {
+    "id": "v11",
+    "name": "clean-slack-casual",
+    "mode": "rewrite",
+    "request": "Rewrite this.",
+    "must": [
+      "Returns the text unchanged, or with at most one tiny edit",
+      "Does not capitalize or formalize it"
+    ],
+    "must_not": [
+      "Adds a greeting or a sign-off"
+    ],
+    "script": true,
+    "similarity_min": 0.9,
+    "input": "inputs/v11-clean-slack-casual.txt"
+  },
+  {
+    "id": "v12",
+    "name": "clean-specific-email",
+    "mode": "rewrite",
+    "request": "Rewrite this.",
+    "must": [
+      "Returns the text unchanged or with one small edit"
+    ],
+    "must_not": [
+      "Rewrites it",
+      "Adds a fact"
+    ],
+    "script": true,
+    "similarity_min": 0.9,
+    "input": "inputs/v12-clean-specific-email.txt"
+  },
+  {
+    "id": "v13",
+    "name": "non-english-french",
+    "mode": "rewrite",
+    "request": "Rewrite this.",
+    "must": [
+      "States that the tell rules are for English",
+      "Stays in French",
+      "Keeps 2021 and 500"
+    ],
+    "must_not": [
+      "Translates the text into English",
+      "Adds a fact"
+    ],
+    "script": true,
+    "input": "inputs/v13-non-english-french.txt"
+  },
+  {
+    "id": "v14",
+    "name": "no-draft-email",
+    "mode": "write",
+    "request": "Write an email telling a customer that their refund of $45 will arrive in 5 business days. You cannot ask me anything.",
+    "must": [
+      "Asks no question",
+      "Includes $45 and 5 business days",
+      "Is short and has no filler opener or closer"
+    ],
+    "must_not": [
+      "Invents a name, an order number, a reason or an apology cause"
+    ],
+    "script": true,
+    "input": "inputs/v14-no-draft-email.txt"
+  }
+]

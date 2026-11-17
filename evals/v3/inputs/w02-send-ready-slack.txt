@@ -1,0 +1,7 @@
+Hey team! :rocket: Just a quick heads up that the staging deploy is now complete. Here's what you need to know:
+
+- **Status:** Done
+- **Time:** 14:20 UTC
+- **Next step:** Smoke tests
+
+Let me know if you have any questions!

@@ -1,0 +1,1 @@
+We moved the billing service to the new cluster on 2 May. Latency dropped from 220 ms to 140 ms at the median. The move also showed us how important it is to keep the runbook current, and the on-call team updated it that week.

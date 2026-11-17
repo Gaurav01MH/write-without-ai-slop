@@ -1,0 +1,1 @@
+Welcome to the Relay API! In today's fast-paced world, integrating payments shouldn't be a headache. Whether you're a startup or an enterprise, Relay makes it effortless. Create a key in Settings, then send a POST to /v1/charges.

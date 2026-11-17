@@ -1,0 +1,9 @@
+Post 1: Here's the thing: testing matters. Most teams skip it. We didn't. Our release broke less this quarter.
+
+Post 2: Here's the thing: documentation matters. Most teams skip it. We didn't. Our onboarding got faster this quarter.
+
+Post 3: Here's the thing: code review matters. Most teams skip it. We didn't. Our bugs dropped this quarter.
+
+Post 4: Here's the thing: monitoring matters. Most teams skip it. We didn't. Our incidents shrank this quarter.
+
+Post 5: Here's the thing: planning matters. Most teams skip it. We didn't. Our deadlines held this quarter.

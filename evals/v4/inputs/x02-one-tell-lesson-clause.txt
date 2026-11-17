@@ -1,0 +1,1 @@
+We rolled the search index to version 4 on 9 June. Query time fell from 310 ms to 180 ms at the median, and the nightly rebuild now takes 22 minutes instead of 55. The project also reminded us how much careful planning matters, and Priya wrote up the steps for next time.

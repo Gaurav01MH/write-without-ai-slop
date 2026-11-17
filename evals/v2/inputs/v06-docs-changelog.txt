@@ -1,0 +1,1 @@
+Version 2.1 introduces a robust, seamless caching layer. It's important to note that cache entries expire after 300 seconds. Previously, caching was handled by the client, but this has since been changed.

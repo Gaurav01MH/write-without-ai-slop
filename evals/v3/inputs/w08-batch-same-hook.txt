@@ -1,0 +1,8 @@
+POST 1
+Most people think SQL is dull. They are wrong. We cut our report time from 9 minutes to 40 seconds with one index.
+
+POST 2
+Most people think meetings are useless. They are wrong. Our Monday sync is now 10 minutes and we kept the agenda doc.
+
+POST 3
+Most people think docs are boring. They are wrong. Our onboarding page went from 12 steps to 5 and new hires finished in a day.

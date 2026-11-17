@@ -1,0 +1,1 @@
+Install with `pip install tidyrows`. Python 3.9 or newer is required. Run `tidyrows --help` for the options.

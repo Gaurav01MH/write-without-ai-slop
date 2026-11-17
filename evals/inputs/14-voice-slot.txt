@@ -1,0 +1,5 @@
+Shipped late. Fixed it. Shipped again. Nobody noticed.
+
+We lost a week to a config bug. One week. Zero customers affected.
+
+Lesson: ship small.

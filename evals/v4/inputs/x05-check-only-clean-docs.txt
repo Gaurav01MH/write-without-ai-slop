@@ -1,0 +1,1 @@
+The importer reads CSV files up to 50 MB. Rows with a missing email are skipped and listed in skipped.log. To change the limit, set MAX_IMPORT_MB in the config file.

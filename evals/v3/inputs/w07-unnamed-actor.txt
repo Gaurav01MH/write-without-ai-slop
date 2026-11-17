@@ -1,0 +1,1 @@
+Quick update! The release has been pushed to Thursday. The payment tests are still failing in CI and the rollback script needs another look. Hoping to have clarity soon!

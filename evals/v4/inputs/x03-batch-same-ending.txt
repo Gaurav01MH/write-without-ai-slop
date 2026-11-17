@@ -1,0 +1,8 @@
+NOTE 1
+Exports now run in the background. Large files no longer time out. Try it today and see the difference!
+
+NOTE 2
+Invoices can now be sent in French and German. Setup takes one minute. Try it today and see the difference!
+
+NOTE 3
+Team roles now have an audit log. It lists every change for 90 days. Try it today and see the difference!

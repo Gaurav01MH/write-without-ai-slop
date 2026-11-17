@@ -1,0 +1,1 @@
+Run `npm install` in the project root. Then start the dev server with `npm run dev`. It listens on port 4000. If the port is taken, set PORT=4100 before the command.

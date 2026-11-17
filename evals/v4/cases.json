@@ -1,0 +1,231 @@
+[
+ {
+  "id": "x01",
+  "name": "send-ready-linkedin",
+  "mode": "rewrite",
+  "request": "Fix this LinkedIn post. I will paste it as it is, so give me only the post.",
+  "must": [
+   "Returns only the post, no notes",
+   "Keeps Nordwind Logistics, 3 February, 14% and 6%",
+   "Removes the not-just-X contrast and the closing engagement question"
+  ],
+  "must_not": [
+   "Adds a Changed list",
+   "Adds a new fact or employer detail"
+  ],
+  "script": true,
+  "input": "inputs/x01-send-ready-linkedin.txt"
+ },
+ {
+  "id": "x02",
+  "name": "one-tell-lesson-clause",
+  "mode": "rewrite",
+  "request": "Tidy this update.",
+  "must": [
+   "Changes nothing or almost nothing and says so under Left alone"
+  ],
+  "must_not": [
+   "Cuts the careful-planning clause",
+   "Changes 310 ms, 180 ms, 22, 55 or 9 June"
+  ],
+  "script": true,
+  "input": "inputs/x02-one-tell-lesson-clause.txt"
+ },
+ {
+  "id": "x03",
+  "name": "batch-same-ending",
+  "mode": "rewrite",
+  "request": "Three product notes for one newsletter. Fix them.",
+  "must": [
+   "Ends the three notes in different ways, or drops the repeated closer",
+   "Keeps French, German, one minute, 90 days"
+  ],
+  "must_not": [
+   "Adds a new feature, benefit or number",
+   "Gives every note a new shared closer"
+  ],
+  "script": true,
+  "input": "inputs/x03-batch-same-ending.txt"
+ },
+ {
+  "id": "x04",
+  "name": "check-only-website",
+  "mode": "check",
+  "request": "Review this homepage hero for AI patterns. Do not rewrite it.",
+  "must": [
+   "Each finding quotes a line and names the pattern",
+   "The whole-text finding (no concrete product detail) is included and quotes the opening line",
+   "Flags vague proof such as thousands of teams",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns a rewritten hero",
+   "Says an AI wrote it"
+  ],
+  "script": false,
+  "input": "inputs/x04-check-only-website.txt"
+ },
+ {
+  "id": "x05",
+  "name": "check-only-clean-docs",
+  "mode": "check",
+  "request": "Audit this doc paragraph for AI patterns. Do not rewrite it.",
+  "must": [
+   "Says it finds no clear problem",
+   "Ends with exactly one closing sentence",
+   "Invents no finding"
+  ],
+  "must_not": [
+   "Returns a rewritten paragraph",
+   "Says an AI wrote it"
+  ],
+  "script": false,
+  "input": "inputs/x05-check-only-clean-docs.txt"
+ },
+ {
+  "id": "x06",
+  "name": "content-free-reply-x",
+  "mode": "rewrite",
+  "request": "Rewrite this reply to a thread about test flakiness.",
+  "must": [
+   "Says in one line that there is no specific content to keep",
+   "Does not reword the praise into a new version"
+  ],
+  "must_not": [
+   "Invents a detail about test flakiness"
+  ],
+  "script": false,
+  "input": "inputs/x06-content-free-reply-x.txt"
+ },
+ {
+  "id": "x07",
+  "name": "write-scratch-invoice-email",
+  "mode": "write",
+  "request": "Write a short email telling a customer their invoice 8812 for $320 is 10 days overdue and payment is due by Friday. Sign it from me. You cannot ask me anything.",
+  "must": [
+   "Includes 8812, $320, 10 days and Friday",
+   "Leaves a marker such as [your name] for the sender",
+   "Asks no question"
+  ],
+  "must_not": [
+   "Invents a customer name, bank detail or a reason",
+   "Ends with 'let me know if', thanks or an offer of help"
+  ],
+  "script": true,
+  "input": "inputs/x07-write-scratch-invoice-email.txt"
+ },
+ {
+  "id": "x08",
+  "name": "unnamed-actor-incident",
+  "mode": "rewrite",
+  "request": "Rewrite this incident note for the team channel.",
+  "must": [
+   "Keeps Monday, 40 minutes, the cache flush and the postmortem",
+   "Does not say who flushed the cache or who writes the postmortem"
+  ],
+  "must_not": [
+   "Writes I flushed, we flushed or I will write",
+   "Invents a cause or a date"
+  ],
+  "script": true,
+  "input": "inputs/x08-unnamed-actor-incident.txt"
+ },
+ {
+  "id": "x09",
+  "name": "clean-control-readme",
+  "mode": "rewrite",
+  "request": "Rewrite this README line.",
+  "must": [
+   "Changes nothing or almost nothing and says so",
+   "Keeps both commands and 3.9 exactly"
+  ],
+  "must_not": [
+   "Rewrites it into a longer version"
+  ],
+  "script": true,
+  "input": "inputs/x09-clean-control-readme.txt"
+ },
+ {
+  "id": "x10",
+  "name": "vague-sources-numbers",
+  "mode": "rewrite",
+  "request": "Rewrite this paragraph for a blog.",
+  "must": [
+   "Keeps 87, 71% and the quote exactly",
+   "Removes or flags the vague studies-show claim without inventing a source"
+  ],
+  "must_not": [
+   "Invents a named study",
+   "Changes the quote"
+  ],
+  "script": true,
+  "input": "inputs/x10-vague-sources-numbers.txt"
+ },
+ {
+  "id": "x11",
+  "name": "slack-over-formatted",
+  "mode": "rewrite",
+  "request": "Clean this up. It goes into Slack as is, so give me only the message.",
+  "must": [
+   "Returns only the message",
+   "Keeps Thursday, 09:00 UTC, .env and restart",
+   "Drops the bold headings and the closing offer"
+  ],
+  "must_not": [
+   "Adds a Changed list",
+   "Says who owns the rotation",
+   "Invents a link or a name"
+  ],
+  "script": true,
+  "input": "inputs/x11-slack-over-formatted.txt"
+ },
+ {
+  "id": "x12",
+  "name": "non-english-german",
+  "mode": "rewrite",
+  "request": "Rewrite this email.",
+  "must": [
+   "Says the tell rules are for English or applies only invented-fact, padding and sameness checks",
+   "Keeps 4471 and Dienstag"
+  ],
+  "must_not": [
+   "Invents a detail",
+   "Translates it to English"
+  ],
+  "script": true,
+  "input": "inputs/x12-non-english-german.txt"
+ },
+ {
+  "id": "x13",
+  "name": "two-tells-docs",
+  "mode": "rewrite",
+  "request": "Rewrite this docs intro.",
+  "must": [
+   "Keeps /v1/charges and Settings",
+   "Removes the welcome, the in-today's-world opener and the startup-or-enterprise range",
+   "Keeps the actual instruction"
+  ],
+  "must_not": [
+   "Invents a feature, limit or number"
+  ],
+  "script": true,
+  "input": "inputs/x13-two-tells-docs.txt"
+ },
+ {
+  "id": "x14",
+  "name": "write-scratch-announce",
+  "mode": "write",
+  "request": "Write a two-sentence internal Slack message announcing that the office will be closed on Friday 18 December for a team day. You cannot ask me anything.",
+  "must": [
+   "Includes Friday 18 December and the team day",
+   "Asks no question",
+   "Is two sentences or close to it"
+  ],
+  "must_not": [
+   "Invents a location, an agenda or a name",
+   "Ends with 'let me know if', thanks or an offer of help"
+  ],
+  "script": true,
+  "input": "inputs/x14-write-scratch-announce.txt"
+ }
+]

@@ -1,0 +1,7 @@
+**Heads up!** :tada: The API key rotation is *scheduled* for Thursday at 09:00 UTC.
+
+**What you need to do:**
+1. Update your local .env
+2. Restart your service
+
+Let me know if anything is unclear!

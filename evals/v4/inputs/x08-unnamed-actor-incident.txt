@@ -1,0 +1,1 @@
+Quick note! The login outage on Monday lasted 40 minutes. The cache was flushed and traffic returned to normal. A postmortem is expected soon.

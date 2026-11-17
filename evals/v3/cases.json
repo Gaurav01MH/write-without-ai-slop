@@ -1,0 +1,233 @@
+[
+ {
+  "id": "w01",
+  "name": "send-ready-email",
+  "mode": "rewrite",
+  "request": "Rewrite this so I can paste it straight into an email to a supplier. I will send it as it is.",
+  "must": [
+   "Returns only the email text, with no Changed list or notes after it",
+   "Keeps order 5521, 12 March, 19 March, Friday, Marcus and Lena",
+   "Removes the chatbot-style opener and the not-just-X contrast"
+  ],
+  "must_not": [
+   "Adds a reason for the delay or a new fact",
+   "Adds a Changed or Left alone section"
+  ],
+  "script": true,
+  "input": "inputs/w01-send-ready-email.txt"
+ },
+ {
+  "id": "w02",
+  "name": "send-ready-slack",
+  "mode": "rewrite",
+  "request": "Clean this up. It goes into Slack as is, so give me only the message.",
+  "must": [
+   "Returns only the message, nothing after it",
+   "Keeps staging, 14:20 UTC and smoke tests",
+   "Drops the bold lead-ins and the closing offer"
+  ],
+  "must_not": [
+   "Adds a Changed list",
+   "Says who will run the smoke tests",
+   "Invents a name or a link"
+  ],
+  "script": true,
+  "input": "inputs/w02-send-ready-slack.txt"
+ },
+ {
+  "id": "w03",
+  "name": "check-only-linkedin",
+  "mode": "check",
+  "request": "Check this post for AI patterns. Do not rewrite it.",
+  "must": [
+   "Each finding quotes a line and names the pattern",
+   "Findings are ordered with the most serious first",
+   "Notes that no specific project, number or result appears",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns a rewritten post",
+   "Says an AI wrote it"
+  ],
+  "script": false,
+  "input": "inputs/w03-check-only-linkedin.txt"
+ },
+ {
+  "id": "w04",
+  "name": "check-only-clean",
+  "mode": "check",
+  "request": "Audit this note for AI patterns. Do not rewrite it.",
+  "must": [
+   "Says it finds no clear problem or only judgment calls",
+   "Ends with exactly one closing sentence",
+   "Does not invent findings to fill the list"
+  ],
+  "must_not": [
+   "Returns a rewritten note",
+   "Says an AI wrote it"
+  ],
+  "script": false,
+  "input": "inputs/w04-check-only-clean.txt"
+ },
+ {
+  "id": "w05",
+  "name": "content-free-comment",
+  "mode": "rewrite",
+  "request": "Rewrite this comment I want to post under a colleague's article.",
+  "must": [
+   "Says in one line that the comment has no specific content to keep",
+   "Does not just reword the praise into a new version"
+  ],
+  "must_not": [
+   "Invents a detail about the article"
+  ],
+  "script": false,
+  "input": "inputs/w05-content-free-comment.txt"
+ },
+ {
+  "id": "w06",
+  "name": "write-scratch-needs-name",
+  "mode": "write",
+  "request": "Write a short email to a client saying our meeting moves from Tuesday 4 June to Thursday 6 June, same time. Sign it from me. You cannot ask me anything.",
+  "must": [
+   "Includes Tuesday 4 June and Thursday 6 June",
+   "Leaves a marker such as [your name] for the sender",
+   "Asks no question"
+  ],
+  "must_not": [
+   "Invents a sender name, client name or a reason",
+   "Ends with a closing thanks or an offer of more help"
+  ],
+  "script": true,
+  "input": "inputs/w06-write-scratch-needs-name.txt"
+ },
+ {
+  "id": "w07",
+  "name": "unnamed-actor",
+  "mode": "rewrite",
+  "request": "Rewrite this status update for the team channel.",
+  "must": [
+   "Keeps Thursday, the failing payment tests in CI and the rollback script",
+   "Does not say who will fix, deploy or look at anything"
+  ],
+  "must_not": [
+   "Writes I will or we will for an action the input does not assign",
+   "Invents a cause or a new date"
+  ],
+  "script": true,
+  "input": "inputs/w07-unnamed-actor.txt"
+ },
+ {
+  "id": "w08",
+  "name": "batch-same-hook",
+  "mode": "rewrite",
+  "request": "These are three posts for the same week. Fix them.",
+  "must": [
+   "Changes the shared opening so the three do not all start the same way",
+   "Keeps 9 minutes, 40 seconds, 10 minutes, 12 steps, 5 and a day"
+  ],
+  "must_not": [
+   "Adds a new fact, cause or number",
+   "Makes all three open in a new shared pattern"
+  ],
+  "script": true,
+  "input": "inputs/w08-batch-same-hook.txt"
+ },
+ {
+  "id": "w09",
+  "name": "clean-control-docs",
+  "mode": "rewrite",
+  "request": "Rewrite this for the docs site.",
+  "must": [
+   "Changes nothing or almost nothing and says so",
+   "Keeps both commands, port 4000 and PORT=4100 exactly"
+  ],
+  "must_not": [
+   "Rewrites the text into a longer or fancier version"
+  ],
+  "script": true,
+  "input": "inputs/w09-clean-control-docs.txt"
+ },
+ {
+  "id": "w10",
+  "name": "one-tell-only",
+  "mode": "rewrite",
+  "request": "Tidy this paragraph.",
+  "must": [
+   "Changes nothing or almost nothing and says so under Left alone"
+  ],
+  "must_not": [
+   "Rewrites it heavily",
+   "Changes 220 ms, 140 ms or 2 May"
+  ],
+  "script": true,
+  "input": "inputs/w10-one-tell-only.txt"
+ },
+ {
+  "id": "w11",
+  "name": "quote-and-numbers",
+  "mode": "rewrite",
+  "request": "Rewrite this paragraph for a newsletter.",
+  "must": [
+   "Keeps 312, 68% and the quote exactly",
+   "Removes or flags the vague experts-say claim without inventing a source"
+  ],
+  "must_not": [
+   "Invents a named expert or study",
+   "Changes the quote"
+  ],
+  "script": true,
+  "input": "inputs/w11-quote-and-numbers.txt"
+ },
+ {
+  "id": "w12",
+  "name": "check-only-batch",
+  "mode": "check",
+  "request": "Check these two product blurbs for AI patterns. Do not rewrite them.",
+  "must": [
+   "Findings quote lines and name patterns",
+   "Flags that both blurbs share one structure",
+   "Notes that no concrete feature appears",
+   "Ends with exactly one closing sentence"
+  ],
+  "must_not": [
+   "Returns rewritten blurbs"
+  ],
+  "script": false,
+  "input": "inputs/w12-check-only-batch.txt"
+ },
+ {
+  "id": "w13",
+  "name": "non-english-spanish",
+  "mode": "rewrite",
+  "request": "Rewrite this email.",
+  "must": [
+   "Says the tell rules are for English or applies only invented-fact, padding and sameness checks",
+   "Keeps 7734 and lunes"
+  ],
+  "must_not": [
+   "Invents a detail",
+   "Translates it to English"
+  ],
+  "script": true,
+  "input": "inputs/w13-non-english-spanish.txt"
+ },
+ {
+  "id": "w14",
+  "name": "write-scratch-reply",
+  "mode": "write",
+  "request": "Write a reply to this message from a customer: \"My export file is empty after I click Download. Order 3318.\" Tell them we are looking into it and will reply by end of day Friday. You cannot ask me anything.",
+  "must": [
+   "Mentions looking into it and replying by end of day Friday",
+   "Mentions order 3318 or the empty export",
+   "Leaves a marker for the sender name",
+   "Asks no question"
+  ],
+  "must_not": [
+   "Invents a cause, a fix or a sender name",
+   "Ends with a closing thanks or an offer of more help"
+  ],
+  "script": true,
+  "input": "inputs/w14-write-scratch-reply.txt"
+ }
+]

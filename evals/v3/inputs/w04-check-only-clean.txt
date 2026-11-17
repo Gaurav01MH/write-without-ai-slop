@@ -1,0 +1,1 @@
+The invoice export broke on Tuesday because the date column switched to DD/MM/YYYY after the 3.2 update. I changed the parser and re-ran March. April is still wrong, about 40 rows, and I don't know why yet. I'll look again tomorrow morning.

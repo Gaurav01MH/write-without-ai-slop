@@ -1,0 +1,244 @@
+[
+  {
+    "id": "01",
+    "name": "clean-human-text",
+    "mode": "rewrite",
+    "request": "Rewrite this.",
+    "must": [
+      "Returns the text unchanged or with one or two small edits",
+      "Says nothing needed fixing, or lists at most one change with a reason"
+    ],
+    "must_not": [
+      "Adds a greeting, sign-off or new fact"
+    ],
+    "script": true,
+    "similarity_min": 0.9,
+    "input": "inputs/01-clean-human-text.txt"
+  },
+  {
+    "id": "02",
+    "name": "linkedin-slop-post",
+    "mode": "rewrite",
+    "request": "Rewrite this LinkedIn post.",
+    "must": [
+      "Keeps 42, 9 and two weeks",
+      "Removes the setup, the not-just contrast, the group of three, the tapestry line, the farmed question and the hashtag block",
+      "Adds no new number, story or claim"
+    ],
+    "must_not": [
+      "Invents a personal story or a result"
+    ],
+    "script": true,
+    "input": "inputs/02-linkedin-slop-post.txt"
+  },
+  {
+    "id": "03",
+    "name": "numbers-urls-quote",
+    "mode": "rewrite",
+    "request": "Rewrite this update.",
+    "must": [
+      "Keeps 12 May, 3 days, 118 pages, 90 days, the URL and the quote word for word"
+    ],
+    "must_not": [
+      "Changes the quote",
+      "Adds a number"
+    ],
+    "script": true,
+    "input": "inputs/03-numbers-urls-quote.txt"
+  },
+  {
+    "id": "04",
+    "name": "check-only",
+    "mode": "check",
+    "request": "Check this draft for AI patterns. Do not rewrite it.",
+    "must": [
+      "Each finding quotes a line and names the pattern",
+      "Findings are ordered most serious first",
+      "Ends with one sentence: clear problem or judgment call",
+      "Does not say or guess that an AI wrote it"
+    ],
+    "must_not": [
+      "Returns a rewritten version of the text"
+    ],
+    "script": false,
+    "input": "inputs/04-check-only.txt"
+  },
+  {
+    "id": "05",
+    "name": "non-english",
+    "mode": "rewrite",
+    "request": "Rewrite this.",
+    "must": [
+      "States that the tell rules are for English",
+      "Stays in German",
+      "Keeps 230 and März",
+      "Does not add facts"
+    ],
+    "must_not": [
+      "Translates the text into English"
+    ],
+    "script": true,
+    "input": "inputs/05-non-english.txt"
+  },
+  {
+    "id": "06",
+    "name": "mixed-spelling",
+    "mode": "rewrite",
+    "request": "Rewrite this.",
+    "must": [
+      "Notices the mix of UK and US spelling",
+      "Either unifies to one variety and says which, or flags the mix",
+      "Asks no question"
+    ],
+    "must_not": [
+      "Asks the user which spelling to use"
+    ],
+    "script": true,
+    "input": "inputs/06-mixed-spelling.txt"
+  },
+  {
+    "id": "07",
+    "name": "cold-email",
+    "mode": "rewrite",
+    "request": "Rewrite this cold email. Facts you may use: Dev builds invoice-matching automation. Priya runs finance operations at Northwind.",
+    "must": [
+      "Cuts the sender-focused opener",
+      "Cuts or flags the claim about the company's growth, since no source is given",
+      "Ends with one clear ask",
+      "Uses only the facts given"
+    ],
+    "must_not": [
+      "Invents a detail about Northwind or Priya",
+      "Keeps the praise as a fact"
+    ],
+    "script": true,
+    "input": "inputs/07-cold-email.txt"
+  },
+  {
+    "id": "08",
+    "name": "landing-page-claims",
+    "mode": "rewrite",
+    "request": "Rewrite this landing page hero.",
+    "must": [
+      "Flags or removes 'world's best', 'trusted by thousands' and '10x' as unsupported",
+      "Keeps the free trial offer"
+    ],
+    "must_not": [
+      "Writes a new claim, number or customer count in their place"
+    ],
+    "script": true,
+    "input": "inputs/08-landing-page-claims.txt"
+  },
+  {
+    "id": "09",
+    "name": "docs-readme",
+    "mode": "rewrite",
+    "request": "Rewrite this README section.",
+    "must": [
+      "Removes simply, it's easy, please note and in order to",
+      "Keeps Node 18, 100 requests per second, the command and the code block exactly"
+    ],
+    "must_not": [
+      "Changes the code block"
+    ],
+    "script": true,
+    "input": "inputs/09-docs-readme.txt"
+  },
+  {
+    "id": "10",
+    "name": "code-block",
+    "mode": "rewrite",
+    "request": "Clean this up.",
+    "must": [
+      "Code block is unchanged byte for byte",
+      "Opening and closing leftovers are removed"
+    ],
+    "must_not": [
+      "Edits the code"
+    ],
+    "script": true,
+    "input": "inputs/10-code-block.txt"
+  },
+  {
+    "id": "11",
+    "name": "chatbot-leftovers",
+    "mode": "rewrite",
+    "request": "Rewrite this bio for a website.",
+    "must": [
+      "Removes the greeting, the 'as an AI' line and the closing offer",
+      "Flags the placeholders and does not fill them",
+      "Removes the tracking parameter from the link"
+    ],
+    "must_not": [
+      "Invents a name or a city"
+    ],
+    "script": true,
+    "input": "inputs/11-chatbot-leftovers.txt"
+  },
+  {
+    "id": "12",
+    "name": "no-draft-non-interactive",
+    "mode": "write",
+    "request": "Write a Slack message telling the team the deploy moved to Thursday. That is all I know. You cannot ask me anything.",
+    "must": [
+      "Asks no question",
+      "Gives a short message",
+      "States at most one assumption in one line"
+    ],
+    "must_not": [
+      "Invents a reason, a time or a name",
+      "Opens with a greeting aimed at the reader such as 'Hope everyone is well'"
+    ],
+    "script": true,
+    "input": "inputs/12-no-draft-non-interactive.txt"
+  },
+  {
+    "id": "13",
+    "name": "batch-sameness",
+    "mode": "rewrite",
+    "request": "These five posts go out this week. Rewrite them.",
+    "must": [
+      "The five posts do not share one opener",
+      "Each keeps its own topic and its claim",
+      "Adds no number or new fact"
+    ],
+    "must_not": [
+      "Leaves four or five posts opening with the same words"
+    ],
+    "script": true,
+    "input": "inputs/13-batch-sameness.txt"
+  },
+  {
+    "id": "14",
+    "name": "voice-slot",
+    "mode": "rewrite",
+    "request": "Rewrite this post. Voice note from the writer: I write in short stacked fragments on purpose. Keep them. I end posts with a one-line lesson.",
+    "must": [
+      "Keeps the fragments",
+      "Keeps the one-line lesson",
+      "Changes little or nothing"
+    ],
+    "must_not": [
+      "Merges the fragments into long sentences"
+    ],
+    "script": true,
+    "similarity_min": 0.85,
+    "input": "inputs/14-voice-slot.txt"
+  },
+  {
+    "id": "15",
+    "name": "single-tell",
+    "mode": "rewrite",
+    "request": "Rewrite this.",
+    "must": [
+      "Leaves the text alone or makes one small edit",
+      "Does not treat one 'crucial' and one dash as a problem on their own"
+    ],
+    "must_not": [
+      "Rewrites the whole text"
+    ],
+    "script": true,
+    "similarity_min": 0.85,
+    "input": "inputs/15-single-tell.txt"
+  }
+]

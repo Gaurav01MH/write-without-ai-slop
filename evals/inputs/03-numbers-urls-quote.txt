@@ -1,0 +1,1 @@
+Our docs moved to https://docs.example.com/v2 on 12 May. The migration took 3 days and covered 118 pages. As the lead put it, "we kept every old link working for 90 days". Please update your bookmarks.

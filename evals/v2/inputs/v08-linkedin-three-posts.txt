@@ -1,0 +1,5 @@
+Post 1: We cut build time from 12 minutes to 4 by caching dependencies. What do you think? Let me know in the comments! #DevOps #Engineering
+
+Post 2: Our on-call rotation changed from weekly to daily shifts after burnout in Q2. What do you think? Let me know in the comments! #Leadership #Engineering
+
+Post 3: I reviewed 30 pull requests this week and 9 had no tests. What do you think? Let me know in the comments! #CodeReview #Engineering
