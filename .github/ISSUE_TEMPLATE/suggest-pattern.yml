@@ -1,0 +1,38 @@
+name: Suggest a pattern or a word
+description: Propose a new AI writing pattern, a word for the list, or a channel page.
+title: "Suggestion: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This skill lists what not to do. It does not teach a style. A suggestion fits if it names a pattern that readers can see. Give a source, or mark it as inference.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you send
+      options:
+        - label: I searched the existing issues and did not find this one.
+          required: true
+  - type: textarea
+    id: pattern
+    attributes:
+      label: The pattern, word or channel
+      description: Say what it is in one or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source and date
+      description: A link and a date. If you have no source, write "inference".
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: An invented before and after
+      description: Do not use text written by a real person.
+      render: text
+    validations:
+      required: true

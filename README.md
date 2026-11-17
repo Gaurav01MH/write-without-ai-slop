@@ -2,7 +2,7 @@
 
 **Stop your AI agent from writing like every other AI.**
 
-AI text looks, feels and reads the same, and readers notice. This skill lists what not to do. It does not teach a style, so your agent keeps its own voice, or yours. No setup, and it does not ask questions mid-task.
+AI text looks, feels and reads the same, and readers notice. This skill lists what not to do. It does not teach a style, so your agent keeps its own voice, or yours. No setup, and it does not ask questions mid-task. It is an agent skill: a folder with a SKILL.md file that agents read.
 
 ## See it work
 
@@ -34,6 +34,12 @@ One line, for agents that support the skills installer:
 npx skills add nocodeanish/write-without-ai-slop
 ```
 
+In Claude Code 2.1.275 or later:
+
+```
+/plugin install write-without-ai-slop --marketplace nocodeanish/write-without-ai-slop
+```
+
 Or copy the folder into your agent's skills folder. For example, in Claude Code:
 
 ```
@@ -61,6 +67,12 @@ It has short pages for LinkedIn, X, email, website copy, docs and Slack.
 - It does not detect AI. Detectors are unreliable: in one study, seven of them flagged 61% of essays by non-native English writers as AI, though people wrote them. This skill never says who wrote a text.
 - One pattern proves nothing. It acts on combinations, and leaves a text alone when only one shows up.
 - It works on English. For other languages it checks only for invented facts, padding and sameness.
+
+## Something went wrong?
+
+Open a [bad output report](https://github.com/nocodeanish/write-without-ai-slop/issues/new?template=bad-output.yml). Paste your request, the text and the answer. Use invented text or text you are free to share.
+
+To add a pattern or fix a page, see [CONTRIBUTING.md](CONTRIBUTING.md). Small first tasks carry the `good first issue` label.
 
 ## Your own voice
 

@@ -1,0 +1,74 @@
+name: Report a bad output
+description: The skill missed an AI pattern, changed text it should have left alone, or made something up.
+title: "Bad output: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when the skill gave a wrong result. Copy the request, the text and the answer exactly. That is the fastest way to a fix.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you send
+      options:
+        - label: I searched the existing issues and did not find this one.
+          required: true
+        - label: The text below holds nothing private.
+          required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What went wrong
+      options:
+        - It missed a pattern it should catch
+        - It changed text it should have left alone
+        - It made up a fact, number, quote or name
+        - It ignored my voice sample or my request
+        - It added notes when I asked for the text only
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: request
+    attributes:
+      label: Your request
+      description: The words you gave the agent, for example "check this draft".
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: The text you gave it
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: What the agent returned
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+      description: One line is enough.
+    validations:
+      required: false
+  - type: input
+    id: agent
+    attributes:
+      label: Agent and model
+      description: The name of the agent and the model, if you know it.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Skill version
+      description: Found in SKILL.md under metadata. For example, 0.5.0.
+    validations:
+      required: false

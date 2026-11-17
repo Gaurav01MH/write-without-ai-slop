@@ -9,6 +9,14 @@ This skill says what not to do. It does not teach a style. Keep it that way.
 3. Add an invented before and after example. Do not use real people's text.
 4. Add a test case in `evals/` that fails without your change.
 
+## Reporting a bad output
+
+Use the [bad output form](https://github.com/nocodeanish/write-without-ai-slop/issues/new?template=bad-output.yml). Copy the request, the text you gave and the answer you got.
+
+## First tasks
+
+Issues with the `good first issue` label are small and list their steps. Say in a comment that you are taking one, then open a pull request.
+
 ## Keeping it short
 
 `SKILL.md` stays under 150 lines. Detail goes in `references/`, one level deep.

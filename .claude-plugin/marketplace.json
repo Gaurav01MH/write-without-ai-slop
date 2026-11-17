@@ -1,0 +1,14 @@
+{
+  "name": "write-without-ai-slop",
+  "description": "A skill that stops AI-written text from sounding like every other AI.",
+  "owner": {
+    "name": "Anish Gandhi"
+  },
+  "plugins": [
+    {
+      "name": "write-without-ai-slop",
+      "source": "./",
+      "description": "Stops AI-written text from sounding like every other AI. Lists what not to do. Does not teach a style."
+    }
+  ]
+}
