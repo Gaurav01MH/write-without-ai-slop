@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Ask a question
+    url: https://github.com/nocodeanish/write-without-ai-slop/discussions
+    about: Questions about using the skill. For a wrong result or a suggestion, use a form above.
