@@ -5,7 +5,7 @@
 - `scripts/check_consistency.py` checks that the version, test counts, links and skill format agree across files. A GitHub Action runs it on every push and pull request.
 - README: added a "Does it work?" section with the test results and their limits, and a "Privacy" section.
 - CONTRIBUTING: run the consistency check before a pull request; contributors are named in the changelog.
-- README art: a banner, an animated before and after, and a card for each way of using it. They are SVG files under `.github/readme/` (15 KB in total), built by `make_art.py`. The README keeps the same example as text in a collapsed block.
+- README art: an animated hero, the write flow, a scan of the 17 patterns, a before and after of five posts that open the same way, an install line, the example with a pen, and a card for each way of using it. They are SVG files under `.github/readme/` (about 65 KB in total), built by `make_art.py` and `panels.py`. All motion is plain CSS, and reduced motion shows the finished picture. The README keeps the same example as text in a collapsed block.
 - README: status, license and release badges; a note that editors call leaving a text alone *stet*.
 - The consistency check now also checks the README art: alt text, missing or unused files, a size limit, and the install command in the demo. CI rebuilds the art and fails if the files differ.
 

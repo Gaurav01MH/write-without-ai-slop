@@ -2,62 +2,19 @@
 """Build the README art for write-without-ai-slop: paper and a red pen.
 
 Usage:
-    python3 .github/readme/make_art.py            write banner.svg, demo.svg, modes.svg next to this file
+    python3 .github/readme/make_art.py            write every SVG in this folder
     python3 .github/readme/make_art.py --check    exit 1 if the files on disk differ from a fresh build
 
 Standard library only. The output is deterministic, so --check can run in CI.
 The art holds no version or test counts, so it never goes stale when those change.
 The text and the pen strokes are positioned with textLength, so they line up in any font.
 """
-import random, sys
+import sys
 from pathlib import Path
+from artlib import *
+from panels import PANELS
 
 HERE = Path(__file__).resolve().parent
-PAPER, EDGE, INK, PEN, MARK = "#fbf7ee", "#e4dcc8", "#2a2a2a", "#d6342b", "#ffe27a"
-MONO = 'ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace'
-SANS = '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif'
-SERIF = 'Georgia,"Times New Roman",serif'
-CW, FS, X0 = 10.8, 18, 28   # monospace cell width at 18px, left margin
-LOOP = 20.0                 # seconds
-
-def esc(s): return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-
-def line(x, y, s, cls="d"):
-    return f'<text class="{cls}" x="{x}" y="{y}" textLength="{len(s)*CW:.1f}" lengthAdjust="spacingAndGlyphs">{esc(s)}</text>'
-
-def pen(x0, x1, y, seed):
-    """A hand-drawn strike: gentle wobble, same result every build."""
-    r = random.Random(seed)
-    pts, x = [], x0
-    while x < x1:
-        pts.append(x); x += r.uniform(22, 34)
-    pts.append(x1)
-    d = f"M{x0:.1f},{y + r.uniform(-1, 1):.1f}"
-    for a, b in zip(pts, pts[1:]):
-        d += f" Q{(a+b)/2:.1f},{y + r.uniform(-3, 3):.1f} {b:.1f},{y + r.uniform(-1.4, 1.4):.1f}"
-    return d
-
-def anim(name, start, dur, kind):
-    """Keyframes for one element in a LOOP-second cycle: hidden until start, then shown until the end."""
-    s, e = start / LOOP * 100, (start + dur) / LOOP * 100
-    if kind == "draw":   # pen stroke drawn along its path
-        kf = f"0%,{s:.2f}%{{stroke-dashoffset:1;opacity:0}}{s+.01:.2f}%{{opacity:1}}{e:.2f}%,100%{{stroke-dashoffset:0;opacity:1}}"
-    else:                # fade in
-        kf = f"0%,{s:.2f}%{{opacity:0}}{e:.2f}%,100%{{opacity:1}}"
-    return f"@keyframes {name}{{{kf}}}"
-
-def svg(w, h, label, body, css):
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" '
-            f'aria-label="{esc(label)}"><title>{esc(label)}</title><style>{css}</style>{body}</svg>\n')
-
-BASE_CSS = (f"text{{font-family:{MONO};font-size:{FS}px;fill:{INK};white-space:pre}}"
-            f".lab{{font-family:{SANS};font-size:12px;letter-spacing:.14em;fill:#8a8068}}"
-            f".note{{font-family:{SANS};font-size:14px;fill:#6b6350}}"
-            f".pen{{fill:none;stroke:{PEN};stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}}"
-            f".num{{font-family:{SANS};font-size:12px;font-weight:700;fill:{PEN};text-anchor:middle}}"
-            f".ring{{fill:none;stroke:{PEN};stroke-width:1.6}}"
-            f".ok{{fill:#1d6b3a}}"
-            f".foot2{{font-family:{SERIF};font-style:italic;font-size:16px;fill:#6b6350}}")
 
 # ---------------------------------------------------------------- demo
 def demo():
@@ -126,25 +83,6 @@ def demo():
     return svg(640, h, "A short draft marked up with a red pen. Four patterns are struck through and numbered: a setup before the point, a “not just X” contrast, a group of three and a bait question. Below, the same draft after the edit. The numbers 42 and 9 stay.",
                f'<g class="all">{inner}</g>', "".join(css))
 
-# ---------------------------------------------------------------- banner
-def banner():
-    css = BASE_CSS + f".word{{font-family:{SANS};font-weight:800;font-size:66px;fill:{INK}}}.serif{{font-family:{SERIF};font-style:italic;font-size:30px;fill:{PEN}}}"
-    body = [f'<rect x="1" y="1" width="1198" height="198" rx="16" fill="{PAPER}" stroke="{EDGE}" stroke-width="2"/>',
-            f'<text class="word" x="48" y="122" textLength="740" lengthAdjust="spacingAndGlyphs">write-without-ai-slop</text>']
-    # a small proof sheet, slightly tilted: one phrase struck, one line marked stet
-    sheet = (f'<g transform="translate(830 18) rotate(-2.2)">'
-             f'<rect x="0" y="0" width="350" height="150" rx="10" fill="#fffdf7" stroke="{EDGE}" stroke-width="2"/>'
-             f'<text x="20" y="40" style="font-size:17px" textLength="{len("Here\'s the thing: shipping fast")*10.2:.0f}" lengthAdjust="spacingAndGlyphs">Here\'s the thing: shipping fast</text>'
-             f'<path class="pen" d="{pen(17, 17+17*10.2, 34, 7)}"/>'
-             f'<text x="20" y="74" style="font-size:17px" textLength="{len("builds trust.")*10.2:.0f}" lengthAdjust="spacingAndGlyphs">builds trust.</text>'
-             f'<rect x="18" y="94" width="{len("Backlog: 42 to 9.")*10.2+4:.0f}" height="26" rx="3" fill="{MARK}" opacity=".7"/>'
-             f'<text x="20" y="113" style="font-size:17px" textLength="{len("Backlog: 42 to 9.")*10.2:.0f}" lengthAdjust="spacingAndGlyphs">Backlog: 42 to 9.</text>'
-             f'<path d="M18,126 q6,5 12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0" fill="none" stroke="{PEN}" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" transform="translate(0 3)"/>'
-             f'<text class="serif" x="250" y="114">stet</text></g>')
-    body.append(sheet)
-    return svg(1200, 200, "write-without-ai-slop", "".join(body), css)
-
-
 # ---------------------------------------------------------------- modes
 def modes():
     css = BASE_CSS + f".h{{font-family:{SANS};font-weight:700;font-size:21px;fill:{INK}}}.s{{font-family:{SANS};font-size:16px;fill:#4a4535}}" \
@@ -158,7 +96,9 @@ def modes():
          ["Shipping fast builds trust."]),
     ]
     body, y = [], 10
-    for t, say, desc, sample in cards:
+    ML = 14.0
+    for ci, (t, say, desc, sample) in enumerate(cards):
+        mark = len(body)
         words, lines_, cur = desc.split(), [], ""
         for w in words:
             if len(cur) + len(w) + 1 > 68: lines_.append(cur); cur = w
@@ -174,11 +114,15 @@ def modes():
         body.append(f'<rect x="24" y="{by}" width="592" height="{box_h}" rx="6" fill="#fffdf7" stroke="{EDGE}"/>')
         for j, l in enumerate(sample):
             body.append(f'<text class="c" x="38" y="{by+24+j*24}">{esc(l)}</text>')
+        grp = "".join(body[mark:]); del body[mark:]
+        css += stops(f"m{ci}", ML, [(0, "opacity:0;transform:translateY(14px)"), (.4 + ci * 1.1, "opacity:0;transform:translateY(14px)"), (1.0 + ci * 1.1, "opacity:1;transform:translateY(0)"), (ML - 1.2, "opacity:1;transform:translateY(0)"), (ML - .6, "opacity:0;transform:translateY(0)"), (ML, "opacity:0;transform:translateY(14px)")]) + run(f"m{ci}", ML)
+        body.append(f'<g class="m{ci}">{grp}</g>')
         y += card_h + 12
+    css += REDUCE
     return svg(640, y - 2, "The three ways to use it. Check lists problems with the quoted line and a short fix. Rewrite returns the smallest edit and a Changed list. Write follows the rules while the agent writes and returns only the text.",
                "".join(body), css)
 
-ART = (("banner", banner), ("demo", demo), ("modes", modes))
+ART = PANELS + (("demo", demo), ("modes", modes))
 
 
 def main(argv):

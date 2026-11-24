@@ -33,7 +33,7 @@ MAX_DESCRIPTION = 1024  # agentskills.io specification
 MAX_NAME = 64
 EVAL_SETS = ("evals", "evals/v2", "evals/v3", "evals/v4")
 ART_DIR = ".github/readme"
-MAX_ART_BYTES = 100_000  # the art is part of every clone and every install
+MAX_ART_BYTES = 250_000  # the art is part of every clone and every install
 LINK = re.compile(r"\[[^\]]*\]\(([^)\s]+)\)|(?:src|href)=\"([^\"]+)\"")
 IMG = re.compile(r"<img\b[^>]*>")
 INSTALL = re.compile(r"npx skills add [\w./-]+")
