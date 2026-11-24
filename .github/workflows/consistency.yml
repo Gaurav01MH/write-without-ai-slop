@@ -21,4 +21,4 @@ jobs:
       - name: Check the README art matches its generator
         run: python3 .github/readme/make_art.py --check
       - name: Compile the scripts
-        run: python3 -m py_compile scripts/check_text.py scripts/check_consistency.py .github/readme/make_art.py .github/readme/artlib.py .github/readme/pixel.py .github/readme/scenes.py evals/grade.py evals/make_prompts.py
+        run: python3 -m py_compile scripts/check_text.py scripts/check_consistency.py .github/readme/make_art.py .github/readme/artlib.py .github/readme/pixel.py .github/readme/scenes.py .github/readme/story.py .github/readme/demo.py evals/grade.py evals/make_prompts.py

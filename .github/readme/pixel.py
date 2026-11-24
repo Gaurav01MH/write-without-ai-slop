@@ -107,17 +107,17 @@ def stars(w, h, count, seed, ymax=None):
     return "".join(out)
 
 
-def night(w, h, label, body, css, rest=""):
+def night(w, h, label, body, css, rest="", scale=1):
     bg = (f'<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{SKY}"/>'
           f'<stop offset="1" stop-color="{SKY2}"/></linearGradient><clipPath id="frame"><rect x="0" y="0" width="{w}" height="{h}" rx="18"/></clipPath></defs>'
           f'<g clip-path="url(#frame)"><rect width="{w}" height="{h}" fill="url(#sky)"/>')
     tail = f'</g><rect x="1" y="1" width="{w-2}" height="{h-2}" rx="18" fill="none" stroke="#2a3558" stroke-width="2"/>'
-    base = (f"text{{font-family:{MONO};white-space:pre;fill:{CREAM}}}.sans{{font-family:{SANS}}}"
+    base = (f"text{{font-family:{MONO};white-space:pre;fill:{CREAM}}}.sans{{font-family:{SANS}}}.serif{{font-family:{SERIF};font-style:italic;fill:{PEN}}}"
             f".tw{{animation:tw 3.2s steps(1) infinite}}@keyframes tw{{0%,60%{{opacity:1}}61%,100%{{opacity:.15}}}}")
     hide = (",".join(f".{c}" for c in HIDE) + "{opacity:0}") if HIDE else ""
     HIDE.clear()
     reduce = f"@media (prefers-reduced-motion:reduce){{*{{animation:none!important}}{hide}{rest}}}"
-    return svg(w, h, label, bg + body + tail, base + css + reduce)
+    return svg(w, h, label, bg + body + tail, base + css + reduce, scale)
 
 
 def poof(name, loop, t, cx, cy, color, size=5, reach=2.4):
