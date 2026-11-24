@@ -35,8 +35,9 @@ def anim(name, start, dur, kind):
         kf = f"0%,{s:.2f}%{{opacity:0}}{e:.2f}%,100%{{opacity:1}}"
     return f"@keyframes {name}{{{kf}}}"
 
-def svg(w, h, label, body, css):
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" '
+def svg(w, h, label, body, css, scale=1):
+    """An SVG whose drawing is w by h units and whose displayed size is scale times that."""
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{round(w*scale)}" height="{round(h*scale)}" role="img" '
             f'aria-label="{esc(label)}"><title>{esc(label)}</title><style>{css}</style>{body}</svg>\n')
 
 BASE_CSS = (f"text{{font-family:{MONO};font-size:{FS}px;fill:{INK};white-space:pre}}"
