@@ -28,3 +28,9 @@ Short sentences, plain words, one idea per sentence. No long dashes. Label a cla
 ## Tests
 
 See `evals/README.md`. Run `python3 scripts/check_text.py ORIGINAL OUTPUT` after any change to the checks.
+
+Run `python3 scripts/check_consistency.py` before you open a pull request. It checks that the version, the test counts and the links agree across files, and the same check runs on every pull request. If you add a test case, update the counts in `evals/README.md`.
+
+## Credit
+
+Contributors are named in the changelog entry for their change, unless they ask to stay out.
