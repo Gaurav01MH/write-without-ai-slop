@@ -53,7 +53,7 @@ def stops(name, loop, points):
     """Keyframes from (second, css) pairs. Each pair is a state at that second; states ease linearly between."""
     out = ""
     for t, css in points:
-        out += f"{min(100, max(0, t / loop * 100)):.2f}%{{{css}}}"
+        out += f"{min(100, max(0, t / loop * 100)):.3f}%{{{css}}}"
     return f"@keyframes {name}{{{out}}}"
 
 def run(name, loop, extra=""):

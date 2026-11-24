@@ -12,7 +12,7 @@ The text and the pen strokes are positioned with textLength, so they line up in 
 import sys
 from pathlib import Path
 from artlib import *
-from panels import PANELS
+from scenes import SCENES
 
 HERE = Path(__file__).resolve().parent
 
@@ -122,7 +122,7 @@ def modes():
     return svg(640, y - 2, "The three ways to use it. Check lists problems with the quoted line and a short fix. Rewrite returns the smallest edit and a Changed list. Write follows the rules while the agent writes and returns only the text.",
                "".join(body), css)
 
-ART = PANELS + (("demo", demo), ("modes", modes))
+ART = SCENES + (("demo", demo), ("modes", modes))
 
 
 def main(argv):

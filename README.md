@@ -1,4 +1,4 @@
-<h1 align="center"><img src=".github/readme/hero.svg" alt="write-without-ai-slop. A red pen strikes four patterns from a short draft and circles the numbers 42 and 9 with the word stet, so the facts stay." width="100%"></h1>
+<h1 align="center"><img src=".github/readme/hero.svg" alt="write-without-ai-slop. A pixel-art editor in a red beret runs along ruled paper and stomps green slop blobs with a red pen. The editor collects two coins, 42 and 9, instead of striking them, and reaches a green finish flag. A scoreboard counts four blobs struck and two coins kept." width="100%"></h1>
 
 <p align="center"><b>Stop your AI agent from writing like every other AI.</b></p>
 
@@ -43,7 +43,7 @@ The numbers stayed. The setup line, the "not just X" contrast, the group of thre
 
 ## Install
 
-<img src=".github/readme/install.svg" alt="A terminal types the install command, npx skills add nocodeanish/write-without-ai-slop, then a note: then ask your agent to check this draft." width="100%">
+<img src=".github/readme/cartridge.svg" alt="A sleepy grey robot gets a skill cartridge labelled SKILL.md dropped into its head. It lights up blue, grabs a red pen and hops, and three green slop blobs run away." width="100%">
 
 One line, for agents that support the skills installer:
 
@@ -65,7 +65,7 @@ cp -r write-without-ai-slop ~/.claude/skills/
 
 ## How it works
 
-<img src=".github/readme/flow.svg" alt="Write mode from start to end: the agent writes with the rules in mind, checks its own draft, makes the smallest edit that removes any problem, and hands back only the text." width="100%">
+<img src=".github/readme/factory.svg" alt="A conveyor belt carries a sheet of paper past three robots and a mailbox. The sheet picks up slop blobs, an inspector robot spots them, an editor robot strikes them out with a red pen, and the clean sheet drops into the mailbox with a green check. The robots stand for write, check, fix and hand back." width="100%">
 
 - **Check:** ask it to check a draft. You get a list of problems, each with the quoted line and a short fix. Nothing is rewritten.
 - **Rewrite:** give it a draft. You get the smallest edit that removes the problems, and a short list of what changed. Say the text will be pasted as it is, and you get only the text.
@@ -75,14 +75,14 @@ cp -r write-without-ai-slop ~/.claude/skills/
 
 ## What it catches
 
-<img src=".github/readme/patterns.svg" alt="The 17 patterns the skill checks for. One draft shows four of them together, so the skill fixes them. Another shows only one, so the skill leaves it alone." width="100%">
+<img src=".github/readme/zoo.svg" alt="Seventeen pixel monsters, one for each pattern. A scan flags four together, and the editor clears them. A second scan flags just one, and the editor lowers the pen and lets it stay." width="100%">
 
 - Invented facts, numbers, quotes and names.
 - Chatbot leftovers such as "Certainly!", "I hope this helps" and unfilled placeholders.
 - Sameness: five posts that open or end the same way.
 - Patterns that matter in combination: "not X, but Y", groups of three, setups before the point, fake meaning at the end of a sentence, stacked fragments, piled-up hedges, vague sources, and more.
 
-<img src=".github/readme/sameness.svg" alt="Five invented posts that all open with the same setup line, then the same five posts with five different openings." width="100%">
+<img src=".github/readme/clones.svg" alt="Five identical grey characters, each with the same slop blob in its speech bubble. The editor taps each one, and each becomes different: its own hat, its own colours and its own picture in the bubble." width="100%">
 
 It has short pages for LinkedIn, X, email, website copy, docs and Slack.
 
