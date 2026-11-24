@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- `scripts/check_consistency.py` checks that the version, test counts, links and skill format agree across files. A GitHub Action runs it on every push and pull request.
+- README: added a "Does it work?" section with the test results and their limits, and a "Privacy" section.
+- CONTRIBUTING: run the consistency check before a pull request; contributors are named in the changelog.
+
 ## 0.5.0 (2026-11-17)
 
 First public version.
