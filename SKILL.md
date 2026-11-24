@@ -3,7 +3,7 @@ name: write-without-ai-slop
 description: Stops AI-written text from sounding like every other AI. Use when drafting, rewriting or checking anything a person will read, such as posts, emails, website copy, docs, Slack messages and reports. Also use when asked to make a draft sound less like AI, to check or audit a draft for AI patterns, or to remove AI tells. Lists what not to do. Does not teach a writing style.
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.5.1"
 ---
 
 # Write without AI slop
