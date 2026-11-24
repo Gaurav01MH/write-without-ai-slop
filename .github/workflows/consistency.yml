@@ -18,5 +18,7 @@ jobs:
           python-version: "3.12"
       - name: Check versions, links and test counts
         run: python3 scripts/check_consistency.py
+      - name: Check the README art matches its generator
+        run: python3 .github/readme/make_art.py --check
       - name: Compile the scripts
-        run: python3 -m py_compile scripts/check_text.py scripts/check_consistency.py evals/grade.py evals/make_prompts.py
+        run: python3 -m py_compile scripts/check_text.py scripts/check_consistency.py .github/readme/make_art.py evals/grade.py evals/make_prompts.py

@@ -15,6 +15,9 @@ Checks:
      every page in references/ is linked from SKILL.md.
   4. Test counts: the numbers in evals/README.md match the case files and
      the results table.
+  5. README art: every image in README.md has alt text and exists, no art
+     file is unused, the art stays small, and the install command in the demo
+     matches the one in the README.
 
 Exit code 0 when all checks pass, 1 when any fails, 2 on a usage error.
 """
@@ -29,7 +32,11 @@ MAX_SKILL_LINES = 150  # CONTRIBUTING.md: SKILL.md stays under 150 lines
 MAX_DESCRIPTION = 1024  # agentskills.io specification
 MAX_NAME = 64
 EVAL_SETS = ("evals", "evals/v2", "evals/v3", "evals/v4")
-LINK = re.compile(r"\[[^\]]*\]\(([^)\s]+)\)")
+ART_DIR = ".github/readme"
+MAX_ART_BYTES = 100_000  # the art is part of every clone and every install
+LINK = re.compile(r"\[[^\]]*\]\(([^)\s]+)\)|(?:src|href)=\"([^\"]+)\"")
+IMG = re.compile(r"<img\b[^>]*>")
+INSTALL = re.compile(r"npx skills add [\w./-]+")
 SEMVER = r"\d+\.\d+\.\d+"
 
 
@@ -101,7 +108,8 @@ def check_skill_format(root):
 
 def relative_links(text):
     """Yield link targets that point to files in the repository."""
-    for target in LINK.findall(text):
+    for markdown, attribute in LINK.findall(text):
+        target = markdown or attribute
         if re.match(r"[a-z][a-z0-9+.-]*:", target) or target.startswith("#"):
             continue  # web link, mailto or in-page anchor
         yield target.split("#", 1)[0]
@@ -167,11 +175,35 @@ def check_eval_counts(root):
     return problems
 
 
+def check_art(root):
+    problems = []
+    folder = root / ART_DIR
+    files = sorted(folder.glob("*.svg")) if folder.is_dir() else []
+    readme = read(root, "README.md")
+    total = sum(f.stat().st_size for f in files)
+    if total > MAX_ART_BYTES:
+        problems.append(f"{ART_DIR}: art is {total} bytes, limit {MAX_ART_BYTES}")
+    for tag in IMG.findall(readme):
+        if not re.search(r'alt="[^"]+"', tag):
+            problems.append(f"README.md: image without alt text: {tag[:70]}")
+    for f in files:
+        if f"{ART_DIR}/{f.name}" not in readme:
+            problems.append(f"{ART_DIR}/{f.name}: not used in README.md")
+        if "<title>" not in f.read_text(encoding="utf-8"):
+            problems.append(f"{ART_DIR}/{f.name}: no <title> element")
+    command = INSTALL.search(readme)
+    demo = folder / "demo.svg"
+    if command and demo.exists() and command.group(0) not in demo.read_text(encoding="utf-8"):
+        problems.append(f"{ART_DIR}/demo.svg: install command differs from README ({command.group(0)})")
+    return problems
+
+
 CHECKS = (
     ("version", check_versions),
     ("skill format", check_skill_format),
     ("links", check_links),
     ("test counts", check_eval_counts),
+    ("art", check_art),
 )
 
 

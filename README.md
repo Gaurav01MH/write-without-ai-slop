@@ -1,10 +1,21 @@
-# write-without-ai-slop
+<h1 align="center"><img src=".github/readme/banner.svg" alt="write-without-ai-slop. Stop your AI agent from writing like every other AI." width="100%"></h1>
 
-**Stop your AI agent from writing like every other AI.**
+<p align="center">
+  <a href="https://github.com/nocodeanish/write-without-ai-slop/actions/workflows/consistency.yml"><img src="https://github.com/nocodeanish/write-without-ai-slop/actions/workflows/consistency.yml/badge.svg" alt="Consistency check status"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/nocodeanish/write-without-ai-slop" alt="License: MIT"></a>
+  <a href="https://github.com/nocodeanish/write-without-ai-slop/releases"><img src="https://img.shields.io/github/v/release/nocodeanish/write-without-ai-slop" alt="Latest release"></a>
+</p>
 
 AI text looks, feels and reads the same, and readers notice. This skill lists what not to do. It does not teach a style, so your agent keeps its own voice, or yours. No setup, and it does not ask questions mid-task. It is an agent skill: a folder with a SKILL.md file that agents read.
 
 ## See it work
+
+<img src=".github/readme/demo.svg" alt="A short draft marked up with a red pen. Four patterns are struck through and numbered: a setup before the point, a not-just-X contrast, a group of three and a bait question. Below it, the same draft after the edit. The numbers 42 and 9 stay." width="100%">
+
+<sub>An illustration of the example below, not a recording. All examples are invented. More in [examples](examples/before-after.md).</sub>
+
+<details>
+<summary>The same example as text</summary>
 
 Before:
 
@@ -24,7 +35,9 @@ Shipping fast builds trust.
 Last month our team cut the checkout bug backlog from 42 to 9 in two weeks.
 ```
 
-The numbers stayed. The setup line, the "not just X" contrast, the group of three and the bait question went. More in [examples](examples/before-after.md). All examples are invented.
+The numbers stayed. The setup line, the "not just X" contrast, the group of three and the bait question went.
+
+</details>
 
 ## Install
 
@@ -52,6 +65,8 @@ cp -r write-without-ai-slop ~/.claude/skills/
 - **Rewrite:** give it a draft. You get the smallest edit that removes the problems, and a short list of what changed. Say the text will be pasted as it is, and you get only the text.
 - **Write:** an agent that is about to write follows the rules while it writes.
 
+<img src=".github/readme/modes.svg" alt="What each way returns. Check: the quoted line, the pattern and a short fix. Rewrite: the smallest edit and a Changed list, or only the text if you say it will be pasted as is. Write: only the text." width="100%">
+
 ## What it catches
 
 - Invented facts, numbers, quotes and names.
@@ -65,7 +80,7 @@ It has short pages for LinkedIn, X, email, website copy, docs and Slack.
 
 - It does not teach good writing or a house style.
 - It does not detect AI. Detectors are unreliable: in one study, seven of them flagged 61% of essays by non-native English writers as AI, though people wrote them. This skill never says who wrote a text.
-- One pattern proves nothing. It acts on combinations, and leaves a text alone when only one shows up.
+- One pattern proves nothing. It acts on combinations, and leaves a text alone when only one shows up. Editors call that *stet*: let it stand.
 - It works on English. For other languages it checks only for invented facts, padding and sameness.
 
 ## Something went wrong?
