@@ -168,7 +168,7 @@ def check_eval_counts(root):
     each = re.search(r"\((\d+) each\)", readme)
     if each and any(int(each.group(1)) != n for n in counts[1:len(RESULT_SETS)]):
         problems.append(f"evals/README.md: says {each.group(1)} each for v2-v4, files hold {counts[1:len(RESULT_SETS)]}")
-    new_set = re.search(r"v6 \((\d+) case\)", readme)
+    new_set = re.search(r"v6/? \((\d+) case\)", readme)
     if new_set and int(new_set.group(1)) != counts[-1]:
         problems.append(f"evals/README.md: says v6 has {new_set.group(1)} case(s), files hold {counts[-1]}")
     header = re.search(r"Total of (\d+)", readme)
