@@ -31,6 +31,10 @@ See `evals/README.md`. Run `python3 scripts/check_text.py ORIGINAL OUTPUT` after
 
 Run `python3 scripts/check_consistency.py` before you open a pull request. It checks that the version, the test counts and the links agree across files, and the same check runs on every pull request. If you add a test case, update the counts in `evals/README.md`.
 
+## README art
+
+The images in `.github/readme/` are built by `.github/readme/make_art.py`. Change the script, run it, and commit the SVG files with it. CI runs `make_art.py --check` and fails if they differ. The art holds no version or test counts, so those never go stale in it. Keep every image's alt text in the README, and keep the total under 250 KB. The motion is plain CSS, so it plays on GitHub without scripts, and every file shows its finished picture when a reader prefers reduced motion.
+
 ## Credit
 
 Contributors are named in the changelog entry for their change, unless they ask to stay out.
