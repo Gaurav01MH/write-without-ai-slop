@@ -6,6 +6,7 @@
   <a href="#try-it-in-one-minute">Try it</a> ·
   <a href="#see-it-work">See it work</a> ·
   <a href="#how-it-works">How it works</a> ·
+  <a href="#faq">FAQ</a> ·
   <a href="#what-it-catches">What it catches</a> ·
   <a href="#does-it-work">Results</a>
 </p>
@@ -74,6 +75,10 @@ The numbers stayed. The setup line, the "not just X" contrast, the group of thre
 
 </details>
 
+The exact checks are a real script. This replay shows the real output of `scripts/check_text.py` on the same invented text: a rewrite that added a number and a chatbot leftover is flagged, and a clean rewrite passes. Rebuild it with `.github/readme/recording/record.js`.
+
+<img src=".github/readme/check-text.gif" alt="A terminal replay. The command check_text.py compares a before text with a first rewrite and prints three findings: the number 12 is not in the original, and two chatbot leftovers. The second rewrite prints ok and exit 0." width="100%">
+
 ## Other ways to install
 
 In Claude Code 2.1.275 or later:
@@ -87,6 +92,16 @@ Or copy the folder into your agent's skills folder. For example, in Claude Code:
 ```
 cp -r write-without-ai-slop ~/.claude/skills/
 ```
+
+## FAQ
+
+**Is it free?** Yes. It is MIT licensed. There is nothing to sign up for and no paid tier.
+
+**Does my text leave my computer?** The skill is text files and one optional script, and it makes no network calls. Your agent still sends your text to its model, as it does for any request. The skill adds no other place for it to go.
+
+**Does it work in my agent?** It is a standard agent skill. `npx skills add` installs it for Claude Code, Cursor, Codex, Cline and others.
+
+**What can it not do?** It does not detect AI, teach a style or work well outside English. See [What it does not do](#what-it-does-not-do).
 
 ## How it works
 
@@ -154,3 +169,5 @@ Where each rule comes from is in [docs/sources.md](docs/sources.md). Versions ar
 MIT. Created by Anish Gandhi. See `LICENSE`.
 
 If this saved you an edit, a star helps other people find it.
+
+Contributors are named in the [changelog](CHANGELOG.md). Small first tasks are labelled [good first issue](https://github.com/nocodeanish/write-without-ai-slop/labels/good%20first%20issue).

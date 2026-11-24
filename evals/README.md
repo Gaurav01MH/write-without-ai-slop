@@ -9,9 +9,9 @@
 3. `python3 evals/grade.py RUN_DIR [SET_DIR]` runs the exact checks: numbers, links, code blocks, quotes, long dashes, chatbot leftovers.
 4. A person or a second model reads the answers against `must` and `must_not` in `cases.json`. Hide which model wrote which answer.
 
-## Results on 0.5.0
+## Results on 0.5.1
 
-One model run per set, three models from one provider, every case answered once. A second model judged the answers without knowing which model wrote them. Exact checks passed on all 171 answers.
+The runs were made on 0.5.0. The rules did not change in 0.5.1, so the results still apply. One model run per set, three models from one provider, every case answered once. A second model judged the answers without knowing which model wrote them. Exact checks passed on all 171 answers.
 
 | Model | Original 15 | v2 | v3 | v4 | Total of 57 |
 |---|---|---|---|---|---|

@@ -1,0 +1,3 @@
+Shipping fast builds trust.
+
+Last month our team cut the checkout bug backlog from 42 to 12 in two weeks. I hope this helps!
