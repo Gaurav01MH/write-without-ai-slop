@@ -128,25 +128,22 @@ def demo():
 
 # ---------------------------------------------------------------- banner
 def banner():
-    css = BASE_CSS + f".word{{font-family:{SANS};font-weight:800;font-size:54px;fill:{INK}}}.tag{{font-family:{SANS};font-size:25px;fill:#4a4535}}" \
-          f".serif{{font-family:{SERIF};font-style:italic;font-size:30px;fill:{PEN}}}"
-    body = [f'<rect x="1" y="1" width="1198" height="238" rx="16" fill="{PAPER}" stroke="{EDGE}" stroke-width="2"/>',
-            f'<text class="word" x="56" y="112" textLength="610" lengthAdjust="spacingAndGlyphs">write-without-ai-slop</text>',
-            f'<text class="tag" x="58" y="160" textLength="640" lengthAdjust="spacingAndGlyphs">Stop your AI agent from writing like every other AI.</text>',
-            f'<text class="lab" x="58" y="196">AN AGENT SKILL THAT LISTS WHAT NOT TO DO</text>']
-    # the small proof sheet, slightly tilted
-    sheet = (f'<g transform="translate(790 34) rotate(-2.2)">'
-             f'<rect x="0" y="0" width="360" height="172" rx="10" fill="#fffdf7" stroke="{EDGE}" stroke-width="2"/>'
-             f'<text x="22" y="44" style="font-size:17px" textLength="{len("Here\'s the thing: shipping fast")*10.2:.0f}" lengthAdjust="spacingAndGlyphs">Here\'s the thing: shipping fast</text>'
-             f'<path class="pen" d="{pen(19, 19+17*10.2, 38, 7)}"/>'
-             f'<text x="22" y="82" style="font-size:17px" textLength="{len("builds trust.")*10.2:.0f}" lengthAdjust="spacingAndGlyphs">builds trust.</text>'
-             f'<rect x="20" y="104" width="{len("Backlog: 42 to 9.")*10.2+4:.0f}" height="26" rx="3" fill="{MARK}" opacity=".7"/>'
-             f'<text x="22" y="124" style="font-size:17px" textLength="{len("Backlog: 42 to 9.")*10.2:.0f}" lengthAdjust="spacingAndGlyphs">Backlog: 42 to 9.</text>'
-             f'<path d="M20,134 q6,5 12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0" fill="none" stroke="{PEN}" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" transform="translate(0 4)"/>'
-             f'<text class="serif" x="262" y="124">stet</text></g>')
+    css = BASE_CSS + f".word{{font-family:{SANS};font-weight:800;font-size:66px;fill:{INK}}}.serif{{font-family:{SERIF};font-style:italic;font-size:30px;fill:{PEN}}}"
+    body = [f'<rect x="1" y="1" width="1198" height="198" rx="16" fill="{PAPER}" stroke="{EDGE}" stroke-width="2"/>',
+            f'<text class="word" x="48" y="122" textLength="740" lengthAdjust="spacingAndGlyphs">write-without-ai-slop</text>']
+    # a small proof sheet, slightly tilted: one phrase struck, one line marked stet
+    sheet = (f'<g transform="translate(830 18) rotate(-2.2)">'
+             f'<rect x="0" y="0" width="350" height="150" rx="10" fill="#fffdf7" stroke="{EDGE}" stroke-width="2"/>'
+             f'<text x="20" y="40" style="font-size:17px" textLength="{len("Here\'s the thing: shipping fast")*10.2:.0f}" lengthAdjust="spacingAndGlyphs">Here\'s the thing: shipping fast</text>'
+             f'<path class="pen" d="{pen(17, 17+17*10.2, 34, 7)}"/>'
+             f'<text x="20" y="74" style="font-size:17px" textLength="{len("builds trust.")*10.2:.0f}" lengthAdjust="spacingAndGlyphs">builds trust.</text>'
+             f'<rect x="18" y="94" width="{len("Backlog: 42 to 9.")*10.2+4:.0f}" height="26" rx="3" fill="{MARK}" opacity=".7"/>'
+             f'<text x="20" y="113" style="font-size:17px" textLength="{len("Backlog: 42 to 9.")*10.2:.0f}" lengthAdjust="spacingAndGlyphs">Backlog: 42 to 9.</text>'
+             f'<path d="M18,126 q6,5 12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0 t12,0" fill="none" stroke="{PEN}" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" transform="translate(0 3)"/>'
+             f'<text class="serif" x="250" y="114">stet</text></g>')
     body.append(sheet)
-    return svg(1200, 240, "write-without-ai-slop. Stop your AI agent from writing like every other AI. A proof sheet with one phrase struck out in red pen and the note stet beside a line that stays.",
-               "".join(body), css)
+    return svg(1200, 200, "write-without-ai-slop", "".join(body), css)
+
 
 # ---------------------------------------------------------------- modes
 def modes():

@@ -1,4 +1,6 @@
-<h1 align="center"><img src=".github/readme/banner.svg" alt="write-without-ai-slop. Stop your AI agent from writing like every other AI." width="100%"></h1>
+<h1 align="center"><img src=".github/readme/banner.svg" alt="write-without-ai-slop" width="100%"></h1>
+
+<p align="center"><b>Stop your AI agent from writing like every other AI.</b></p>
 
 <p align="center">
   <a href="https://github.com/nocodeanish/write-without-ai-slop/actions/workflows/consistency.yml"><img src="https://github.com/nocodeanish/write-without-ai-slop/actions/workflows/consistency.yml/badge.svg" alt="Consistency check status"></a>
